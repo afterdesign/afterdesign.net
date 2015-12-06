@@ -1,0 +1,18 @@
+title: after.thougts
+email: rafal+blog@malinowski.be
+description:
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://afterdesign.net" # the base hostname & protocol for your site
+
+permalink: "/:year/:month/:day/:title.html"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+sass:
+    style: compressed
+exclude:
+    - node_modules/
+    - package.json
+    - CNAME

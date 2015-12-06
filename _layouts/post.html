@@ -1,0 +1,17 @@
+---
+layout: post
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl | prepend: site.url }}">
+    <script type="text/javascript" src="{{ "/js/prism.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+</head>
+<body>
+    <main>
+        {% include post.html %}
+    </main>
+</body>
+</html>

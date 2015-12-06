@@ -1,0 +1,16 @@
+<ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            <div class="post-data">
+                <div class="post-title">
+                    {{ post.title }}
+                </div>
+                <div class="post-date">
+                    {{ post.date | date: "%B %e, %Y" }}
+                </div>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | prepend: site.url }}">
+</head>
+<body>
+    <main>
+        {% include posts_list.html %}
+    </main>
+</body>
+</html>

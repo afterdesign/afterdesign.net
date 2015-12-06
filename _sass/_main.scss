@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+
+$hoverLinkColor: #0000EE;
+$infoColor: #a5a5a5;
+$urlColor: #29A8F5;
+
+body {
+    font: 1.3em "Crimson Text", serif;
+    line-height: 1.58;
+    color: #000;
+    width: 80%;
+    margin:0 auto;
+}
+
+main {
+    margin: 8% 0 8% 0;
+}
+
+a {
+    text-decoration: none;
+    color: $urlColor;
+    &:hover {
+        -webkit-transition: color 0.8s;
+        -moz-transition:    color 0.8s;
+        -ms-transition:     color 0.8s;
+        -o-transition:      color 0.8s;
+        transition:         color 0.8s;
+        color:$hoverLinkColor;
+    }
+}
