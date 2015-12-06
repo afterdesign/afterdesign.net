@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "npm run build:mkdir && npm run build:js && npm run build:jekyll",
-    "build:js": "uglifyjs node_modules/prismjs/components/prism-core.js node_modules/prismjs/components/prism-clike.js node_modules/prismjs/components/prism-ruby.js node_modules/prismjs/components/prism-bash.js node_modules/prismjs/components/prism-javascript.js node_modules/prismjs/components/prism-php.js node_modules/prismjs/components/prism-php-extras.js node_modules/prismjs/components/prism-python.js --screw-ie8 -m -c --comments -o js/prism.min.js",
+    "build:js": "uglifyjs --screw-ie8 -m -c --comments node_modules/prismjs/components/prism-core.js node_modules/prismjs/components/prism-clike.js node_modules/prismjs/components/prism-ruby.js node_modules/prismjs/components/prism-bash.js node_modules/prismjs/components/prism-javascript.js node_modules/prismjs/components/prism-php.js node_modules/prismjs/components/prism-php-extras.js node_modules/prismjs/components/prism-python.js -o js/prism.min.js",
     "build:mkdir": "mkdir -p js",
     "build:jekyll": "jekyll serve --destination build --watch --host 0.0.0.0",
     "clean": "rm -rf js"
