@@ -2,7 +2,7 @@
 
 $hoverLinkColor: #0000EE;
 $infoColor: #a5a5a5;
-$urlColor: #29A8F5;
+$urlColor: deepskyblue;
 
 body {
     font: 1.3em "Crimson Text", serif;
@@ -10,10 +10,14 @@ body {
     color: #000;
     width: 80%;
     margin:0 auto;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
 }
 
 main {
     margin: 8% 0 8% 0;
+    flex: 1;
 }
 
 a {

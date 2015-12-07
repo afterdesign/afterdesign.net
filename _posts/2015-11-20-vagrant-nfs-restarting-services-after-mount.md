@@ -18,7 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 end
-
 ```
 
 When OS is booting up all of the services are starting. I'm using ```php5-fpm``` and ```nginx``` and both of those services require paths to exist for proper running. NFS shares are mounted in vagrant guest os after starting the services.
