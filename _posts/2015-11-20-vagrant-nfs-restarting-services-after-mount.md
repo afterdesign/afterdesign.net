@@ -8,13 +8,11 @@ category: "tech gibberish"
 Before jumping to scripts/udev there are few things I'm taking "as is" from my vagrant setup and this Vagrantfile example will help you to understand/recreate what I'm doing.
 
 ```ruby
-VAGRANTFILE_API_VERSION = '2'
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure('2') do |config|
   config.vm.hostname = 'test.com'
 
-  config.vm.network :private_network, ip: '192.192.1.2' # and the IP of my local computer is 192.192.1.1
-  config.vm.synced_folder '.', '/project', type: 'nfs', mount_options: ['actimeo=1', 'vers=3']
+  config.vm.network 'private_network', ip: '192.192.1.2' # and the IP of my local computer is 192.192.1.1
+  config.vm.synced_folder '.', '/project', type: 'nfs'
 
   config.ssh.forward_agent = true
 end
