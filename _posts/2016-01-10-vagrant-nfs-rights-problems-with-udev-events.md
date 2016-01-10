@@ -7,7 +7,6 @@ category: "tech gibberish"
 First things first in this post I'm using a lot of informations from my previous post about [restarting services after mounting with help of udev events](http://afterdesign.net/2015/11/20/vagrant-nfs-restarting-services-after-mount.html)
 
 ### A problem.
-
 If you google for [vagrant nfs rights](https://www.google.pl/search?q=vagrant+nfs+rights) or something similar you'll find a ton of posts about problems with editing/writing files in vagrant guest OS.
 
 I had similar problems while installing [karma runner](http://karma-runner.github.io/) from npm.
