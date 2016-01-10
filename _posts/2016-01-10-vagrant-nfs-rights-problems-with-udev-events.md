@@ -68,4 +68,5 @@ fi
 systemctl restart systemd-user-sessions.service
 ```
 
- It has few ifs. Some of them are for the process of the box [creation](http://packer.io) and some are just to make changes once.
+It has few conditions.
+Some of them are for the process of the box [creation](http://packer.io), some to make sure it's not going to fail with nasty exit code and some are just to make changes once not every ```vagrant reload/halt/up```
