@@ -13,12 +13,12 @@ issue_id: 3
 #### Meet the ```pip wheel```.
 [```wheel```](https://wheel.readthedocs.org/en/latest/) is "a built-package format for Python".
 
-This is the replacement for the egg format which never had proper pep specification. Wheel gives us option to create binary "package" bo ourself. If there already is ```.whl``` uploaded to pypi ```pip wheel``` will download and use it.
+This is the replacement for the egg format which never had proper pep specification. Wheel gives us an option to create binary "package" by ourself. If there already is ```.whl``` uploaded to pypi ```pip wheel``` will download and use it.
 
 ```pip wheel``` can create binaries and can get them from requirements file with ```-r``` flag.
 
 #### Creating ```.whl``` packages.
-I splitted this into 3 steps:
+I split this into 3 steps:
 
 Create ```virtualenv``` for every ```requirements``` file for which I want to build wheels.
 
@@ -66,7 +66,7 @@ ExecStop=/usr/local/bin/devpi-server --stop --serverdir /home/$USER/mirror/
 WantedBy=multi-user.target
 ```
 
-File was copied to ```/home/$USER/.config/systemd/user/devpi.service``` and the services was started with
+File was copied to ```/home/$USER/.config/systemd/user/devpi.service``` and the service was started with
 
 ```bash
 systemctl --user enable devpi.service
