@@ -3,6 +3,7 @@ layout: post
 title:  "Restart services after mounting NFS folders in Vagrant with udev events"
 date:   2015-11-20
 category: "tech gibberish"
+issue_id: 1
 ---
 
 Before jumping to scripts/udev there are few things I'm taking "as is" from my vagrant setup and this Vagrantfile example will help you to understand/recreate what I'm doing.

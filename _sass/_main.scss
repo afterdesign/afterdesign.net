@@ -28,3 +28,13 @@ a {
         color:$hoverLinkColor;
     }
 }
+
+footer {
+    border-top: 1px solid #cfcfcf;
+    margin-bottom: 20em;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+}
