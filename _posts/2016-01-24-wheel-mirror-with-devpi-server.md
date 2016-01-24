@@ -8,19 +8,19 @@ issue_id: 3
 
 #### A problem.
 
-```pip install``` can take quite a while when we try to install packages as big as [scikit-learn](http://scikit-learn.org/stable/) or [scipy](http://www.scipy.org/). Especially if you're installing it quite often within virtualenv and on not that powerful vagrant virtual machine.
+```pip install``` can take quite a while when we try to install packages as big as [scikit-learn](http://scikit-learn.org/stable/) or [scipy](http://www.scipy.org/) from source. Especially if you're installing it quite often within virtualenv and not on that powerful vagrant virtual machine.
 
 #### Meet the ```pip wheel```.
-[```wheel```](https://wheel.readthedocs.org/en/latest/) is "A built-package format for Python".
+[```wheel```](https://wheel.readthedocs.org/en/latest/) is "a built-package format for Python".
 
-This is the replacement for the egg format which never had proper pep specification. Wheel gives us option to create "package". If there already is ```.whl``` ```pip wheel``` will download and use it.
+This is the replacement for the egg format which never had proper pep specification. Wheel gives us option to create binary "package" bo ourself. If there already is ```.whl``` uploaded to pypi ```pip wheel``` will download and use it.
 
-```pip wheel``` can create binaries for all of your requirements and can get them from requirements file with ```-r``` flag.
+```pip wheel``` can create binaries and can get them from requirements file with ```-r``` flag.
 
 #### Creating ```.whl``` packages.
 I splitted this into 3 steps:
 
-Create ```virtualenv``` for every ```requirements``` for which I want to build wheels.
+Create ```virtualenv``` for every ```requirements``` file for which I want to build wheels.
 
 ```bash
 virtualenv venv
@@ -38,7 +38,6 @@ Create wheels in seperate directory (to add them easily to devpi mirror).
 ```bash
 pip wheel -r requirements.txt -w /home/$USER/wheels/
 ```
-
 
 #### [```devpi```](http://doc.devpi.net/latest/) installation/configuration
 Installation of ```devpi``` is the easiest part:
@@ -76,7 +75,7 @@ systemctl --user start devpi.service
 
 Now it's time to configure our local mirror.
 
-I have created this mirror "behind firewall" so I'm not using any authentication/password. With this in mind configuration of devpi server was limited to creation of user and new mirror directory.
+I have created this mirror "behind firewall" so I'm not using any authentication. With this in mind configuration of devpi server was limited to creation of user and new mirror index.
 
 ```bash
 devpi use http://localhost:3141
