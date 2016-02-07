@@ -9,7 +9,7 @@ We are using selenium (with help of [behat](http://docs.behat.org/en/v3.0/)) qui
 When test failed we had problem to debug it. And running all tests on our local machines is taking about 60min. We have parallel test suites in jenkins so it takes less than 10min so we are using jenkins to run tests for every commit we push to our git repository.
 First we were taking screenshots of every step but Behat v3.0 doesn't have option to run step within step and writing each step in gherkin is not the way we want to pursue, we would like to write more business focused tests.
 
-So when my friend started reading "[Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation](http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912)" book he read about recording selenium sessions with [pyvnc2swf](http://www.unixuser.org/~euske/vnc2swf/pyvnc2swf.html) (or something similar).
+My friend read about [pyvnc2swf](http://www.unixuser.org/~euske/vnc2swf/pyvnc2swf.html) in "[Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation](http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912)".
 
 The idea was so simple and genious that I started to look for options to record sessions which would save us time with debugging problems.
 First I tried to use [pyvnc2swf](http://www.unixuser.org/~euske/vnc2swf/pyvnc2swf.html) but this is quite old software. So I started to read about options of Xvfb.
