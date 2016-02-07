@@ -29,6 +29,8 @@ With this I started to search for informations "how to record X sessions with ff
 ffmpeg -f x11grab -video_size 1920x1080 -i 127.0.0.1:44 -codec:v libx264 -r 12 /tmp/behat_1.mp4
 {% endhighlight %}
 
+The ```-i``` flag is setting up which display to use from which server. I have 6 builds running in paralel and they're using different displays to see what is happening.
+
 The last problem I had was with properly quitting ffmpeg when the recording was done.
 ```kill``` command would kill the process but the information about video length wasn't correctly saved to container. This made seeking through video problematic.
 To quit ```ffmpeg``` properly I had to send ```q``` keystroke to ffmpeg process.
