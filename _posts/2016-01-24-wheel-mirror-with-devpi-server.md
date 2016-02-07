@@ -22,35 +22,35 @@ I split this into 3 steps:
 
 Create ```virtualenv``` for every ```requirements``` file for which I want to build wheels.
 
-```bash
+{% highlight bash %}
 virtualenv venv
-```
+{% endhighlight %}
 
 Install all dependencies from ```requirements``` file.
 
-```bash
+{% highlight bash %}
 source venv/bin/activate
 pip install -r requirements
-```
+{% endhighlight %}
 
 Create wheels in seperate directory (to add them easily to devpi mirror).
 
-```bash
+{% highlight bash %}
 pip wheel -r requirements.txt -w /home/$USER/wheels/
-```
+{% endhighlight %}
 
 #### [```devpi```](http://doc.devpi.net/latest/) installation/configuration
 Installation of ```devpi``` is the easiest part:
 
-```bash
+{% highlight bash %}
 pip install devpi-server devpi-client
-```
+{% endhighlight %}
 
 To make it easier to start/stop service I also created user in the system called devpi and enabled ```systemd``` to run processess for users even if they logged out.
 
 The ```.service``` file looks like this:
 
-```bash
+{% highlight bash %}
 [Unit]
 Description=local devpi mirror
 After=network.target
@@ -64,45 +64,45 @@ ExecStop=/usr/local/bin/devpi-server --stop --serverdir /home/$USER/mirror/
 
 [Install]
 WantedBy=multi-user.target
-```
+{% endhighlight %}
 
 File was copied to ```/home/$USER/.config/systemd/user/devpi.service``` and the service was started with
 
-```bash
+{% highlight bash %}
 systemctl --user enable devpi.service
 systemctl --user start devpi.service
-```
+{% endhighlight %}
 
 Now it's time to configure our local mirror.
 
 I have created this mirror "behind firewall" so I'm not using any authentication. With this in mind configuration of devpi server was limited to creation of user and new mirror index.
 
-```bash
+{% highlight bash %}
 devpi use http://localhost:3141
 devpi user -c $USER password=
 devpi login $USER --password=
 devpi index -c mirror
-```
+{% endhighlight %}
 
 #### Adding ```.whl``` to ```devpi``` server
 Earlier in post I wrote about creating seperate directory for wheels. Now we can use it to add packages we build locally to devpi:
 
-```bash
+{% highlight bash %}
 devpi use http://localhost:3141
 devpi login $USER --password=
 devpi use $USER/mirror
 devpi upload --no-vcs --formats=bdist_wheel --from-dir /home/$USER/wheels/
-```
+{% endhighlight %}
 
 And now we have our locally available packages which we can use even if the internet (or pypi) is down.
 
-```bash
+{% highlight bash %}
 pip install -i http://localhost:3141/$USER/mirror/ -r requirements
-```
+{% endhighlight %}
 
 #### Example on your local computer
 
-```bash
+{% highlight bash %}
 # create venv, directories and install deps
 virtualenv venv
 mkdir wheels
@@ -131,17 +131,17 @@ devpi upload --no-vcs --formats=bdist_wheel --from-dir wheels
 
 #test if it works
 pip install -i http://localhost:3141/$USER/mirror/ arrow
-```
+{% endhighlight %}
 
 #### Global pip configuration with fallback to pypi
 And the last thing I wanted to do is to create pip config which can be used everywhere.
 When the local mirror is not available/dead/broken it's going to download packages from pypi.
 
-```bash
+{% highlight bash %}
 [global]
 index-url = http://localhost:3141/$USER/mirror/
 extra-index-url = https://pypi.python.org/simple/
 retries = 0
-```
+{% endhighlight %}
 
 Where to put this ```pip.conf``` you can find on [pip documentation page](https://pip.pypa.io/en/stable/user_guide/#configuration)

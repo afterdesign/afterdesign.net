@@ -19,10 +19,10 @@ One of the dependencies is [bufferutil](https://github.com/websockets/bufferutil
 
 I'm using debian as guest os in vagrant and the uid/gid for created vagrant user is 1000 (you can check this with simple ```id``` command after ```vagrant ssh```). On my desktop I'm running OSX and the uid/gid is quite different:
 
-```bash
+{% highlight bash %}
 → id
 uid=501(afterdesign) gid=20(staff) groups=20(staff),12(everyone) ...
-```
+{% endhighlight %}
 
 So with help of udev events I've extended bash script to change UID and GID of vagrant user.
 We can do this simply with using usermod and getting the user UID/GID over NFS.
@@ -30,23 +30,23 @@ We can do this simply with using usermod and getting the user UID/GID over NFS.
 To get GID/UID I'm using simple stat commands.
 The only prerequisit here is that NFS is mounted (and it has to be to run some kind of provisioning) and there is ```Vagrantfile```:
 
-```bash
+{% highlight bash %}
 stat -c '%u' /project/Vagrantfile
 stat -c '%g' /project/Vagrantfile
-```
+{% endhighlight %}
 
 With that we can go full mental and use that usermod:
 
-```bash
+{% highlight bash %}
 usermod -u $(stat -c '%u' /project/Vagrantfile) vagrant
 usermod -g $(stat -c '%g' /project/Vagrantfile) vagrant
-```
+{% endhighlight %}
 
 There might be a problem with ```systemd``` process when you try to use usermod so there is always a good idea to kill systemd process for vagrant user and then restart ```systemd-user-sessions``` service.
 
 So in the end I've created the script:
 
-```bash
+{% highlight bash %}
 if [[ ! -d /home/vagrant ]]; then
     exit 0;
 fi
@@ -66,7 +66,7 @@ if [[ $(stat -c '%g' /project/Vagrantfile) != $(stat -c '%g' /home/vagrant) ]]; 
 fi
 
 systemctl restart systemd-user-sessions.service
-```
+{% endhighlight %}
 
 It has few conditions.
 Some of them are for the process of the box [creation](http://packer.io), some to make sure it's not going to fail with nasty exit code and some are just to make changes once not every ```vagrant reload/halt/up```

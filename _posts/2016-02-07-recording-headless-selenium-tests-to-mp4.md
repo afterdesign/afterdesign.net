@@ -16,18 +16,18 @@ First I tried to use [pyvnc2swf](http://www.unixuser.org/~euske/vnc2swf/pyvnc2sw
 
 My first dicovery was that Xvfb can listen for remote connections. So I could easily start Xvfb running selenium:
 
-```bash
+{% highlight bash %}
 xvfb-run --listen-tcp --server-num 44 --auth-file /tmp/xvfb.auth -s "-ac -screen 0 1920x1080x24" java -jar selenium.jar
-```
+{% endhighlight %}
 
 ```--server-num``` is the option to set what is the "display id" which is used in next step.
 
 
 With this I started to search for informations "how to record X sessions with ffmpeg". And to my surprise [ffmpeg](https://www.ffmpeg.org) has the ```x11grab``` option. And I was even more surprised when it started to do this over IP. So now I can start to record when job with behat is running. Some additional switches and stuff and I had movie in 12fps (cause this is not a movie and I don't need silky smooth fps rate).
 
-```bash
+{% highlight bash %}
 ffmpeg -f x11grab -video_size 1920x1080 -i 127.0.0.1:44 -codec:v libx264 -r 12 /tmp/behat_1.mp4
-```
+{% endhighlight %}
 
 The last problem I had was with properly quitting ffmpeg when the recording was done.
 ```kill``` command would kill the process but the information about video length wasn't correctly saved to container. This made seeking through video problematic.
@@ -38,12 +38,12 @@ I had to start detached session with ```tmux``` running ```ffmpeg``` and name se
 
 So when the build is starting I'm starting tmux with ffmpeg recording
 
-```bash
+{% highlight bash %}
 tmux new-session -d -s BehatRecording1 'ffmpeg -f x11grab -video_size 1920x1080 -i 192.168.102.1:44 -codec:v libx264 -r 12 /tmp/behat_1.mp4'
-```
+{% endhighlight %}
 
 And when the build is finishing (no matter if tests are succesfull or not) I'm sending ```q``` to that session with:
 
-```bash
+{% highlight bash %}
 tmux send-keys -t BehatRecording1 q
-```
+{% endhighlight %}
