@@ -11,11 +11,15 @@
         <div class="post-info">
             <h2 class="post-date">Posted on {{page.date | date: "%B %e, %Y"}}</h2>
             <h2 class="post-category">
-            Part of
-                {% for cat in page.categories %}
-                    <category>{{ cat }}</category>
-                {% endfor %}
-            series
+                {% if page.categories %}
+                    Part of
+                        {% for cat in page.categories %}
+                            <category>{{ cat }}</category>
+                        {% endfor %}
+                    series
+                {% else %}
+                    &nbsp;
+                {% endif %}
             </h2>
         </div>
     </header>
