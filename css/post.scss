@@ -48,7 +48,7 @@ p {
 .post-title {
     width:100%;
     font-weight: bold;
-    font-size:1.5em;
+    font-size:2em;
 }
 
 code:not(.language-bash):not(.language-ruby):not(.language-javascript):not(.language-php) {
@@ -59,12 +59,32 @@ code:not(.language-bash):not(.language-ruby):not(.language-javascript):not(.lang
     padding: 0 0.5em 0 0.5em;
 }
 
+h1 {
+    width:100%;
+    font-weight: bold;
+    font-size:1.8em;
+}
+
+h2 {
+    font-weight: bold;
+    font-size:1.7em;
+}
+
 h3 {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 h4 {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.4em;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+img {
+    width:100%;
 }
