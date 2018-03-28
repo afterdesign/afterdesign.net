@@ -4,87 +4,9 @@
 @charset "utf-8";
 
 @import "reset";
+@import "variables";
+@import "header";
 @import "main";
+@import "footer";
+
 @import "_prism_theme";
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
-
-.post-category, .post-date {
-    font-size: 0.8em;
-    color: $infoColor;
-}
-
-.post-content {
-    margin-top: 2em;
-}
-
-p {
-    margin-bottom: 1.2em;
-}
-
-.highlight {
-    margin: 2em 0px 2em 0px;
-}
-
-.post-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-}
-
-.post-back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f1efee;
-    width:6%;
-    text-transform:uppercase;
-    color: $infoColor;
-}
-
-.post-info {
-    margin-left: 1%;
-}
-
-.post-title {
-    width:100%;
-    font-weight: bold;
-    font-size:2em;
-}
-
-code:not(.language-bash):not(.language-ruby):not(.language-javascript):not(.language-php) {
-    background-color: #f1efee;
-    font-family: $codeFonts;
-    font-size: 0.75em;
-    line-height: $codeLineHeight;
-    padding: 0 0.5em 0 0.5em;
-}
-
-h1 {
-    width:100%;
-    font-weight: bold;
-    font-size:1.8em;
-}
-
-h2 {
-    font-weight: bold;
-    font-size:1.7em;
-}
-
-h3 {
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-h4 {
-    font-weight: bold;
-    font-size: 1.4em;
-}
-
-h5 {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-img {
-    width:100%;
-}

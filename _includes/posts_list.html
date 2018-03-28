@@ -1,5 +1,14 @@
-<ul class="post-list">
-    {% for post in site.posts %}
-    {% include posts_list_partial.html %}
-    {% endfor %}
-</ul>
+{% for post in site.posts %}
+{% if forloop.first %}{% continue %}{%endif%}
+<article>
+    <div>
+        <time>{{ post.date | date: "%B %e, %Y" }}</time>
+    </div>
+    <div>
+        <a class="post_title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
+    </div>
+    <p>
+        {{ post.excerpt }}
+    </p>
+</article>
+{% endfor %}

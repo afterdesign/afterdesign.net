@@ -10,9 +10,20 @@ layout: post
     <script type="text/javascript" src="{{ "/js/prism.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
 </head>
 <body>
-    <main>
+    <header>
+        {% include header_nav.html %}
+        <article>
+            <div>
+                <time>{{page.date | date: "%B %e, %Y"}}</time>
+            </div>
+            <div>
+                <a class="post_title" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a>
+            </div>
+        </article>
+    </header>
+    <section>
         {% include post.html %}
-    </main>
+    </section>
     <footer>
         {% include footer.html %}
     </footer>

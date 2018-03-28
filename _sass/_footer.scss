@@ -1,0 +1,24 @@
+
+footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: var(--header-background);
+
+    display:grid;
+    grid-template-columns: var(--margins-width)  auto var(--margins-width);
+    align-items: center;
+    padding: 1rem 0 5rem 0;
+}
+
+footer > div {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+footer > div > div {
+    line-height: 2rem;
+}

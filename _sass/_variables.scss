@@ -1,0 +1,25 @@
+:root {
+    --header-height: 60px;
+    --main-background: white;
+    --header-background: black;
+    --main-font-color: black;
+    --links-bg-color: #5F6A6F;
+    --links-font-color: white;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --margins-width: calc(100vw * 0.15);
+    }
+}
+@media (max-width: 768px) {
+    :root {
+        --margins-width: calc(100vw * 0.0625);
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        --margins-width: calc(100vw * 0.0625);
+    }
+}
