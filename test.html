@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
+    :root {
+      --header-height: 60px;
+      --main-background: white;
+      --header-background: black;
+      --main-font-color: black;
+      --links-bg-color: #5F6A6F;
+      --links-font-color: white;
+    }
+
+    @media (min-width: 768px) {
+      :root {
+        --margins-width: calc(100vw * 0.15);
+      }
+    }
+    @media (max-width: 768px) {
+      :root {
+        --margins-width: calc(100vw * 0.0625);
+      }
+    }
+
+    body {
+      display: grid;
+      background: var(--main-background);
+      grid-template-columns: var(--margins-width) auto var(--margins-width);
+      grid-template-rows: auto auto auto;
+
+      font-family: 'Georgia';
+    }
+
+    time {
+      font-size: 1em;
+      line-height: 1.8em;
+      font-family: 'Share Tech Mono';
+      background-color: var(--links-bg-color);
+      color: var(--links-font-color);
+
+      padding: 5px 0px;
+      box-shadow: 0.5rem 0 0 var(--links-bg-color), -0.5rem 0 0 var(--links-bg-color);
+      display: inline;
+    }
+
+    .post_title {
+      font-size: 1.4em;
+
+      background-color: var(--links-bg-color);
+      color: var(--links-font-color);
+      text-decoration: none;
+
+      display: inline;
+      padding: 5px 0;
+      box-shadow: 0.5rem 0 0 var(--links-bg-color), -0.5rem 0 0 var(--links-bg-color);
+      box-decoration-break: clone;
+    }
+
+    header {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 4;
+
+      background-color: var(--header-background);
+
+      /* let's go with subgrid cause I don't have idea how to do this in different way */
+      display:grid;
+      grid-template-columns: var(--margins-width) var(--header-height) auto var(--margins-width);
+      grid-template-rows: var(--header-height) auto;
+      align-items: center;
+    }
+
+    header > .logo {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      width: 40px;
+      height: 40px;
+
+      background-color: var(--main-background);
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header > .logo > a > img {
+      width: 30px;
+      padding: 5px;
+    }
+
+    header > nav {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 2;
+
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    nav > a {
+      font-size: 1.2em;
+      padding: 0.3rem 0.6rem;
+      font-family: 'Share Tech Mono';
+      background-color: var(--links-bg-color);
+      color: var(--links-font-color);
+      text-decoration: none;
+    }
+
+    header > article {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 3;
+
+      background-color: var(--header-background);
+      padding: 1.2rem 0;
+    }
+
+    header > article > div > span {
+      font-size: 1em;
+      line-height: 1.6em;
+      font-family: 'Share Tech Mono';
+      background-color: var(--links-bg-color);
+      color: var(--links-font-color);
+
+      padding: 5px 0px;
+      box-shadow: 0.5rem 0 0 var(--links-bg-color), -0.5rem 0 0 var(--links-bg-color);
+      display: inline;
+    }
+
+    section {
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+
+    section > article {
+      padding-top:10px;
+    }
+
+    section > article > div {
+      line-height: 1.4;
+    }
+
+    section > article > p {
+      padding: 0.5rem 0;
+      font-size: 1.2em;
+      line-height: 1.2;
+    }
+
+    section > article > p > a {
+      font-size: 1.1em;
+
+      background-color: var(--links-bg-color);
+      color: var(--links-font-color);
+      text-decoration: none;
+      padding: 0 0.5rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        color: var(--links-font-color);
+      }
+      50% {
+        color: var(--links-bg-color);
+      }
+    }
+
+    a:after {
+      content: '_';
+    }
+
+    a:hover::after {
+      animation: pulse 0.5s linear infinite alternate;
+    }
+
+    footer {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">
+        <img src="images/drawing.svg">
+      </a>
+    </div>
+    <nav>
+      <a href="">about</a>
+    </nav>
+    <article>
+      <div>
+        <span>Last post:</span>
+      </div>
+      <div>
+        <time>March 20, 2016</time>
+      </div>
+      <div>
+        <a class="post_title" href="">Tools I can't live without - CLI edition</a>
+      </div>
+    </article>
+  </header>
+
+  <section>
+
+    <article>
+      <div>
+        <time>March 7, 2016</time>
+      </div>
+      <div>
+        <a class="post_title" href="">OS X reinstallation pain</a>
+      </div>
+      <p>
+        My laptop is over 2 years old now (macbook pro 13" late 2013).
+        I'm one of those people who upgrade to new OS version right after it's released
+        (sometimes even beta version). So it wasn’t shocker when I upgraded from 10.10
+        to 10.11 on day 1.
+      </p>
+    </article>
+    <article>
+      <div>
+        <time>February 21, 2016</time>
+      </div>
+      <div>
+        <a class="post_title" href="">Connecting to headless Xvfb session running selenium tests with VNC</a>
+      </div>
+      <p>
+         Last time I wrote how to <a href="">record selenium testing to mp4 with ffmpeg</a>. This time I would like to show how to connect to Xvfb and watch selenium testing live.
+      </p>
+    </article>
+  </section>
+
+  <!-- <footer>
+    <p>Copyright 2009 Your name</p>
+  </footer> -->
+</body>
+</html>
