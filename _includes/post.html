@@ -1,5 +1,9 @@
-<article class="post">
-    <div class="post-content">
-        {{ content }}
+<article>
+    <a class="post_title" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a>
+    <div>
+        <time>{{ page.date | date: "%B %e, %Y" }}</time>
     </div>
+</article>
+<article class="post">
+    {{ content }}
 </article>

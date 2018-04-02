@@ -1,25 +1,40 @@
 :root {
-    --header-height: 60px;
-    --main-background: white;
-    --header-background: black;
-    --main-font-color: black;
-    --links-bg-color: #5F6A6F;
-    --links-font-color: white;
+    --body-background: rgba(245, 249, 233, 0.2);
+    --title-color: #5F6A6F;
+    --font-color: #121420;
+    --links-font-color: #B76D68;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     :root {
-        --margins-width: calc(100vw * 0.15);
-    }
-}
-@media (max-width: 768px) {
-    :root {
-        --margins-width: calc(100vw * 0.0625);
+        --img-margin-left: -100px;
+        --body-width: 900px;
+        --text-element-width: 700px;
+        --text-element-margin: 100px;
+        --title-font-size: 4.5em;
+        --header-height: 150px;
+        --img-max-width: 900px;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1024px) {
     :root {
-        --margins-width: calc(100vw * 0.0625);
+        --body-width: calc(100vw * 0.95);
+        --img-max-width: calc(100vw * 0.95);
+        --text-element-width: calc(100vw * 0.95);
+        --text-element-margin: 0;
+        --img-margin-left: 0;
+        --title-font-size: 3em;
+        --header-height: 120px;
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        --body-width: calc(100vw * 0.95);
+        --img-max-width: calc(100vw * 0.95);
+        --img-margin-left: 0;
+        --title-font-size: 2em;
+        --header-height: 120px;
     }
 }

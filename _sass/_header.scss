@@ -1,34 +1,20 @@
-header {
+body > header {
     grid-row-start: 1;
     grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
 
-    background-color: var(--header-background);
-
-    /* let's go with subgrid cause I don't have idea how to do this in different way */
-    display:grid;
-    grid-template-columns: var(--margins-width) var(--header-height) auto var(--margins-width);
-    grid-template-rows: var(--header-height) auto;
+    display:flex;
     align-items: center;
 }
 
 .logo {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    width: 40px;
-    height: 40px;
-
-    background-color: var(--main-background);
+    width: 50px;
+    height: 50px;
+    padding: 0 50px;
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-}
-
-.logo > a{
-    background-color: white;
-    padding:0;
 }
 
 .logo > a:after {
@@ -36,47 +22,11 @@ header {
 }
 
 .logo > a > img {
-    width: 30px;
-    padding: 5px;
+    width: 50px;
 }
 
-header > nav {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
+body > header > nav {
     display: flex;
+    flex-grow: 2;
     justify-content: flex-end;
-}
-
-nav > a {
-    font-size: 1.2em;
-    padding: 0.3rem 0.6rem;
-    font-family: 'Share Tech Mono';
-    background-color: var(--links-bg-color);
-    color: var(--links-font-color);
-    text-decoration: none;
-}
-
-header > article {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-
-    background-color: var(--header-background);
-    padding: 1.2rem 0;
-}
-
-header > article > div > span {
-    font-size: 1em;
-    line-height: 1.6em;
-    font-family: 'Share Tech Mono';
-    background-color: var(--links-bg-color);
-    color: var(--links-font-color);
-
-    padding: 5px 0px;
-    box-shadow: 0.5rem 0 0 var(--links-bg-color), -0.5rem 0 0 var(--links-bg-color);
-    display: inline;
 }

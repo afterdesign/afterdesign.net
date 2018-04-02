@@ -4,28 +4,21 @@ layout: post
 
 <!DOCTYPE html>
 <html>
-<head>
-    {% include head.html %}
-    <link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl | prepend: site.url }}">
-    <script type="text/javascript" src="{{ "/js/prism.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
-</head>
-<body>
-    <header>
-        {% include header_nav.html %}
-        <article>
-            <div>
-                <time>{{page.date | date: "%B %e, %Y"}}</time>
-            </div>
-            <div>
-                <a class="post_title" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a>
-            </div>
-        </article>
-    </header>
-    <section>
-        {% include post.html %}
-    </section>
-    <footer>
-        {% include footer.html %}
-    </footer>
-</body>
+    <head>
+        {% include head.html %}
+        <link rel="stylesheet" href="{{ "/css/post.css " | prepend: site.baseurl | prepend: site.url }}">
+        <script type="text/javascript" src="{{ "/js/prism.min.js " | prepend: site.baseurl | prepend: site.url }}"></script>
+    </head>
+
+    <body>
+        <header>
+            {% include header_nav.html %}
+        </header>
+        <section>
+            {% include post.html %}
+        </section>
+        <footer>
+            {% include footer.html %}
+        </footer>
+    </body>
 </html>

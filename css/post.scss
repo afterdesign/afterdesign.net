@@ -5,8 +5,41 @@
 
 @import "reset";
 @import "variables";
+@import "common";
 @import "header";
-@import "main";
 @import "footer";
 
 @import "_prism_theme";
+
+
+section {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+section > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+p {
+    margin-bottom: 90px;
+    width: var(--text-element-width);
+    line-height: 1.4;
+    margin-left: var(--text-element-margin);
+}
+
+h1, h5 {
+    font-size: 2em;
+    margin-bottom: 24px;
+    width: var(--text-element-width);
+    margin-left: var(--text-element-margin);
+}
+
+p > img {
+    max-width: var(--img-max-width);
+    margin-left: var(--img-margin-left);
+}

@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    {% include head.html %}
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl | prepend: site.url }}">
-</head>
-<body>
-    <header>
-        {% include header_nav.html %}
-        <article>
-            <div>
-                <span>Last post:</span>
-            </div>
-            <div>
-                <time>{{ site.posts.first.date | date: "%B %e, %Y" }}</time>
-            </div>
-            <div>
-                <a class="post_title" href="{{ site.posts.first.url | prepend: site.baseurl | prepend: site.url }}">{{ site.posts.first.title }}</a>
-            </div>
-        </article>
-    </header>
-    <section>
-        {% include posts_list.html %}
-    </section>
-    <footer>
-        {% include footer.html %}
-    </footer>
-</body>
+    <head>
+        {% include head.html %}
+        <link rel="stylesheet" href="{{ "/css/home.css " | prepend: site.baseurl | prepend: site.url }}">
+    </head>
+    <body>
+        <header>
+             {% include header_nav.html %}
+        </header>
+        <main>
+            {% include posts_list.html %}
+        </main>
+        <footer>
+             {% include footer.html %}
+        </footer>
+    </body>
 </html>

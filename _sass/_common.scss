@@ -1,0 +1,69 @@
+ @import url('https://fonts.googleapis.com/css?family=BioRhyme:700|Philosopher:700|Questrial');
+
+body {
+    display: grid;
+    background-color: var(--body-background);
+    grid-template-columns: auto var(--body-width) auto;
+    grid-template-rows: var(--header-height) auto auto;
+
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.5em;
+}
+
+main {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+time {
+    display:block;
+    font-family: 'Philosopher', sans-serif;
+    font-weight: 700;
+    color: var(--title-color);
+    border-bottom: 1px solid red;
+    width: 250px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+    color: var(--links-font-color);
+    }
+    50% {
+    color: var(--body-background);
+    }
+}
+
+a {
+    color: var(--links-font-color);
+    text-decoration: none;
+}
+
+a:after {
+    content: '_';
+}
+
+a:hover::after {
+    animation: pulse 0.5s linear infinite alternate;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+article > a {
+    font-size: var(--title-font-size);
+    font-family: 'BioRhyme', serif;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 10px;
+}

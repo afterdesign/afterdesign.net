@@ -1,14 +1,8 @@
 {% for post in site.posts %}
-{% if forloop.first %}{% continue %}{%endif%}
 <article>
+    <a class="post_title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
     <div>
         <time>{{ post.date | date: "%B %e, %Y" }}</time>
     </div>
-    <div>
-        <a class="post_title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
-    </div>
-    <p>
-        {{ post.excerpt }}
-    </p>
 </article>
 {% endfor %}
