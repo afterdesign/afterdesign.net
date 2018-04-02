@@ -30,3 +30,7 @@ body > header > nav {
     flex-grow: 2;
     justify-content: flex-end;
 }
+
+body > header > nav > a{
+    margin-left: 10px;
+}
