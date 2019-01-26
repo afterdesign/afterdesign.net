@@ -2,7 +2,7 @@ title: after.design after.thoughts
 email: rafal+blog@malinowski.be
 description:
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://afterdesign.net" # the base hostname & protocol for your site
+url: "https://afterdesign.net" # the base hostname & protocol for your site
 
 permalink: "/:year/:month/:day/:title.html"
 
