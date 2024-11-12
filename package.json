@@ -4,7 +4,7 @@
   "description": "blog deps",
   "main": "index.js",
   "dependencies": {
-    "prismjs": "^1.13.0",
+    "prismjs": "^1.27.0",
     "uglify-js": "^3.3.16"
   },
   "devDependencies": {},
